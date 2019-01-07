@@ -1,12 +1,15 @@
 package com.github.heyalex.ideasdiscussion
 
-import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
+import reactor.netty.http.server.HttpServer
+import java.time.Duration
 
-@SpringBootApplication
 class IdeasDiscussionApplication
 
 fun main(args: Array<String>) {
-	runApplication<IdeasDiscussionApplication>(*args)
+
+    HttpServer.create()
+        .host("0.0.0.0")
+        .port(8080)
+        .bindUntilJavaShutdown(Duration.ofSeconds(10), null)
 }
 
