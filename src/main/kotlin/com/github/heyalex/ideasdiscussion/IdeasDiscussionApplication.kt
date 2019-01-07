@@ -9,6 +9,7 @@ import org.springframework.web.server.adapter.WebHttpHandlerBuilder
 import reactor.netty.http.server.HttpServer
 import java.time.Duration
 
+
 fun main(args: Array<String>) {
     val context = GenericApplicationContext()
 
@@ -22,12 +23,13 @@ fun main(args: Array<String>) {
             )
         }
     }.initialize(context)
-
     context.refresh()
+    val httpHandler = WebHttpHandlerBuilder.applicationContext(context).build()
 
     HttpServer.create()
         .host("0.0.0.0")
         .port(8080)
+        .handle(ReactorHttpHandlerAdapter(httpHandler))
         .bindUntilJavaShutdown(Duration.ofSeconds(10), null)
 }
 
