@@ -9,7 +9,6 @@ import reactor.core.publisher.toMono
 class GetIdeasHandler {
 
     fun handle(request: ServerRequest) : Mono<ServerResponse> {
-        println(request.toString())
         return ServerResponse.ok().body(fromObject(arrayOf(1, 2, 3))).toMono()
     }
 }
