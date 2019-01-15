@@ -7,7 +7,6 @@ import reactor.core.publisher.Mono
 import reactor.core.publisher.toMono
 
 class GetIdeasHandler {
-
     fun handle(request: ServerRequest) : Mono<ServerResponse> {
         return ServerResponse.ok().body(fromObject(arrayOf(1, 2, 3))).toMono()
     }

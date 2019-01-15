@@ -36,6 +36,7 @@ compileTestKotlin {
 }
 
 repositories {
+    maven { url "https://dl.bintray.com/kotlin/exposed" }
     mavenCentral()
 }
 
@@ -47,5 +48,6 @@ dependencies {
     implementation "io.projectreactor.netty:reactor-netty:0.8.3.RELEASE"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "org.jetbrains.kotlin:kotlin-reflect"
+    implementation 'org.jetbrains.exposed:exposed:0.11.2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
